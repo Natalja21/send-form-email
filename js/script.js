@@ -6,32 +6,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
     async function formSend(e) {
         e.preventDefault();
-        let error = formValidate(form);
-        let formData = new FormData(form);
+        console.log(e.currentTarget);
+        let errorValidate = formValidate(e.currentTarget);
+        let formData = new FormData(e.currentTarget);
+        console.log(e.currentTarget.elements);
         formData.append("image", formImg.files[0]);
-        if (error === 0) {
+        if (errorValidate === 0) {
             form.classList.add("_sending");
-            let response = await fetch("sendmail.php", {
-                method: "POST",
-                body: formData,
-            });
-            if (response.ok) {
-                let result = await response.json();
-                alert(result.message);
-                formPreview.innerHTML = "";
-                form.reset();
-                form.classList.remove("_sending");
-            } else {
-                alert("Виникла помилка, спробуйте пізніше.");
-                form.classList.remove("_sending");
-            }
+            // let response = await fetch("sendmail.php", {
+            //     method: "POST",
+            //     body: formData,
+            // });
+            // if (response.ok) {
+            //     let result = await response.json();
+            //     alert(result.message);
+            //     formPreview.innerHTML = "";
+            //     form.reset();
+            //     form.classList.remove("_sending");
+            // } else {
+            //     alert("Виникла помилка, спробуйте пізніше.");
+            //     form.classList.remove("_sending");
+            // }
         }
-        // else {
-        //     alert("Заповніть обов'язкові поля");
-        // }
+        else {
+
+            alert("Заповніть обов'язкові поля");
+        }
     }
 
-    async function formValidate(form) {
+    function formValidate(form) {
         let error = 0;
         let formReq = document.querySelectorAll("._req");
         console.log(formReq.length);
