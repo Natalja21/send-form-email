@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="./css/styles.css" />
+		<title>Відправка форми на пошту</title>
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<div class="form">
+				<form action="#" id="form" class="form__body">
+					<h1 class="form__title">Замовити послугу</h1>
+					<div class="form__item">
+						<label for="formName" class="form__label">Iм'я*</label>
+						<input id="formName" type="text" name="name" class="form__input _req" />
+					</div>
+					<div class="form__item">
+						<label for="formEmail" class="form__label">E-mail*</label>
+						<input id="formEmail" type="email" name="email" class="form__input _req _email" />
+					</div>
+					<div class="form__item">
+						<label for="formTel" class="form__label">Телефон*</label>
+						<input id="formTel" type="tel" name="tel" class="form__input _req" />
+					</div>
+					<div class="options">
+						<div class="options__item">
+							<input id="retail" type="radio" name="trade" value="retail" class="options__input" />
+							<label for="retail" class="options__label"><span>Роздріб</span></label>
+						</div>
+						<div class="options__item">
+							<input id="wholesale" type="radio" checked name="trade" value="wholesale" class="options__input" />
+							<label for="wholesale" class="options__label"><span>Оптом</span></label>
+						</div>
+					</div>
+					<div class="form__item">
+						<label for="formMessage" class="form__label">Комментарі</label>
+						<textarea id="formMessage" name="message" class="form__input"></textarea>
+					</div>
+					<div class="form__item">
+						<p class="form__label">Регіон</p>
+						<select name="regions" id="" class="select">
+							<option value="Ukrain" selected>Україна</option>
+							<option value="Europe">Європа</option>
+						</select>
+					</div>
+					<div class="form__item">
+						<p class="form__label">Прикріпити файл</p>
+						<div class="file">
+							<div class="file__item">
+								<input id="formImg" accept=".jpg, .png, .gif" type="file" name="image" class="file__input" />
+								<button type="button" class="file__button">Вибрати</button>
+							</div>
+							<div id="formPreview" class="file__preview"></div>
+						</div>
+						<div class="form__item">
+							<div class="checkbox">
+								<input id="formAgreement" type="checkbox" name="aggreement" class="checkbox__input _req" />
+								<label for="formAgreement" class="checkbox__label">
+									<span>
+										Я даю згоду на обробку персональних данних згідно
+										<a href="#">Договору</a>
+									</span>
+								</label>
+							</div>
+						</div>
+					</div>
+					<button type="submit" class="form__button">Надіслати</button>
+				</form>
+			</div>
+		</div>
+		<script src="./js/script.js"></script>
+	</body>
+</html>
